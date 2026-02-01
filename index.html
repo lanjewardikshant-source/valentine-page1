@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Valentine ❤️</title>
+  <style>
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #ffe6eb;
+      font-family: Arial, sans-serif;
+      margin: 0;
+    }
+
+    .box {
+      text-align: center;
+    }
+
+    h1 {
+      color: #e6005c;
+      margin-bottom: 20px;
+    }
+
+    input {
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      margin-bottom: 15px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 18px;
+      margin: 10px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    #yes {
+      background-color: #ff4d79;
+      color: white;
+    }
+
+    #no {
+      background-color: #999;
+      color: white;
+      position: absolute;
+    }
+
+    #gif {
+      display: none;
+      margin-top: 20px;
+    }
+
+    img {
+      width: 250px;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <input type="text" id="nameInput" placeholder="Enter your name ❤️">
+    <h1 id="question">Will you be my Valentine?</h1>
+
+    <button id="yes">Yes</button>
+    <button id="no">No</button>
+
+    <div id="gif">
+      <h2>Yayyy ❤️ You said YES!</h2>
+      <img src="https://media.giphy.com/media/10MYt5jPR6QX5pnqM/giphy.gif" alt="Love Gif">
+    </div>
+  </div>
+
+  <script>
+    const nameInput = document.getElementById("nameInput");
+    const question = document.getElementById("question");
+    const noButton = document.getElementById("no");
+    const yesButton = document.getElementById("yes");
+    const gifDiv = document.getElementById("gif");
+
+    nameInput.addEventListener("input", () => {
+      const name = nameInput.value.trim();
+      question.innerText = name
+        ? `Will you be my Valentine, ${name}? ❤️`
+        : "Will you be my Valentine?";
+    });
+
+    noButton.addEventListener("mouseover", () => {
+      const x = Math.random() * (window.innerWidth - 100);
+      const y = Math.random() * (window.innerHeight - 50);
+      noButton.style.left = x + "px";
+      noButton.style.top = y + "px";
+    });
+
+    yesButton.addEventListener("click", () => {
+      gifDiv.style.display = "block";
+    });
+  </script>
+</body>
+</html>
